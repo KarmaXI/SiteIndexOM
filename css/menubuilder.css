@@ -1,0 +1,70 @@
+/* Enhanced Breadcrumb Navigation */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--spacing-12) var(--spacing-16);
+  margin-bottom: 0;
+  list-style: none;
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  transition: box-shadow var(--transition-normal);
+}
+
+.breadcrumb:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  color: var(--text-light);
+  content: "/";
+}
+
+.breadcrumb-item.active {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.breadcrumb-item a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-md);
+  display: inline-block;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--primary-dark);
+  background-color: var(--primary-bg);
+  transform: translateY(-1px);
+}
+
+.breadcrumb-link {
+  position: relative;
+}
+
+.breadcrumb-link:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 2px;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transition: transform var(--transition-fast);
+}
+
+.breadcrumb-link:hover:after {
+  transform: scaleX(1);
+}
+
+/* Dark mode support for breadcrumb hover */
+.dark-mode .breadcrumb-item a:hover {
+  background-color: rgba(129, 140, 248, 0.1);
+}
